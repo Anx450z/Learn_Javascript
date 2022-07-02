@@ -10,7 +10,7 @@
 const brakeUpText = (text, commentType = "//")=> {
   const textLength = text.length;
   const padding = 4;
-  const lineLimit = 30; // works from range 21+
+  const lineLimit = 25; // works from range 21+
   textSegments = text.split(" ");
   if (textLength > lineLimit){
     let segmentLengthSum = 0;
@@ -66,4 +66,14 @@ brakeUpText("this is a bit longer than usual type of message");
 //  in the document.This is a sample text                 //
 //  for the document, it should be properly               //
 //  modified and presented in the document.               //
+////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+//  this is short message.                                //
+////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+//  this is slightly shorter message.                     //
+////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+//  this is a bit longer than usual type                  //
+//  of message                                            //
 ////////////////////////////////////////////////////////////

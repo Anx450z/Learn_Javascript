@@ -11,8 +11,8 @@ const brakeUpText = (text, commentType = "//")=> {
   const textLength = text.length;
   const padding = 4;
   const lineLimit = 30; // works from range 21+
+  textSegments = text.split(" ");
   if (textLength > lineLimit){
-    textSegments = text.split(" ");
     let segmentLengthSum = 0;
     let next = 0;
     let line = "";
@@ -34,10 +34,21 @@ const brakeUpText = (text, commentType = "//")=> {
     console.log(line);
     console.log(commentType .repeat(lineLimit));
   }
+  else{
+    line = commentType + " ".repeat(padding/2) + text;
+    lineSpace = " ".repeat(lineLimit*2 - line.length -2) + commentType ;
+    finalLine = line + lineSpace;
+    console.log(commentType .repeat(lineLimit));
+    console.log(finalLine);
+    console.log(commentType .repeat(lineLimit));
+  }
 }
 
 let text = "This is a sample text for the document, it should be properly modified and presented in the document.";
 brakeUpText(text+text+text+text+text+text);
+brakeUpText("this is short message.");
+brakeUpText("this is slightly shorter message.");
+brakeUpText("this is a bit longer than usual type of message");
 //output
 ////////////////////////////////////////////////////////////
 //  This is a sample text for the                         //

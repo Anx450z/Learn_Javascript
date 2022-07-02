@@ -7,7 +7,7 @@
 /////////////////////////////////////////////////
 
 // Breakup text to max characters
-const brakeUpText = (text)=> {
+const brakeUpText = (text, commentType = "//")=> {
   const textLength = text.length;
   const padding = 4;
   const lineLimit = 30; // works from range 21+
@@ -20,21 +20,39 @@ const brakeUpText = (text)=> {
     for (i=0; i < textSegments.length; i++){
       segmentLengthSum += textSegments[i].length;
       if(segmentLengthSum > lineLimit){
-        newLine = "//"+" ".repeat(padding/2)+textSegments.slice(next,i).join(" ");
-        newLineSpace = " ".repeat(lineLimit*2 - newLine.length -2) + "//";
+        newLine = commentType + " ".repeat(padding/2) + textSegments.slice(next,i).join(" ");
+        newLineSpace = " ".repeat(lineLimit*2 - newLine.length -2) + commentType ;
         line += newLine + newLineSpace + "\n";
         segmentLengthSum = 0;
         next = i;
       }
     }
-    newLine = "//"+" ".repeat(padding/2)+textSegments.slice(next,i).join(" ");
-    newLineSpace = " ".repeat(lineLimit*2 - newLine.length -2) + "//";
+    newLine = commentType + " ".repeat(padding/2)+textSegments.slice(next,i).join(" ");
+    newLineSpace = " ".repeat(lineLimit*2 - newLine.length -2) + commentType ;
     line += newLine + newLineSpace;
-    console.log("//".repeat(lineLimit));
+    console.log(commentType .repeat(lineLimit));
     console.log(line);
-    console.log("//".repeat(lineLimit));
+    console.log(commentType .repeat(lineLimit));
   }
 }
 
 let text = "This is a sample text for the document, it should be properly modified and presented in the document.";
 brakeUpText(text+text+text+text+text+text);
+//output
+////////////////////////////////////////////////////////////
+//  This is a sample text for the                         //
+//  document, it should be properly modified and          //
+//  presented in the document.This is a sample            //
+//  text for the document, it should be                   //
+//  properly modified and presented in the                //
+//  document.This is a sample text for the document, it   //
+//  should be properly modified and presented             //
+//  in the document.This is a sample text                 //
+//  for the document, it should be properly               //
+//  modified and presented in the document.This           //
+//  is a sample text for the document, it                 //
+//  should be properly modified and presented             //
+//  in the document.This is a sample text                 //
+//  for the document, it should be properly               //
+//  modified and presented in the document.               //
+////////////////////////////////////////////////////////////

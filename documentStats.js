@@ -36,5 +36,5 @@ const brakeUpText = (text)=> {
   }
 }
 
-let text = "this is a sample text for the document, it should be properly modified and presented in the document.";
+let text = "This is a sample text for the document, it should be properly modified and presented in the document.";
 brakeUpText(text+text+text+text+text+text);

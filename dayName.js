@@ -27,3 +27,10 @@ console.log(palindrome("ankur")) ;
 console.log(palindrome("racecar")) ;
 console.log(palindrome2("Racecar")) ;
 console.log(palindrome2("Ankur")) ;
+
+const reverse = (word) =>{
+  return Array.from(word).reverse().join("")
+}
+
+console.log(reverse("😂❤️😂"));
+console.log(reverse("😂❤️🌐😂"));

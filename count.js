@@ -72,3 +72,8 @@ let altStringMessage = (str) => {
 
 console.log(altStringMessage("hi"));
 console.log(altStringMessage(""));
+
+// JS only cares about the sign of the number in sorting
+
+aSorted = a.sort(function(a,b) {return a-b;});
+console.log(aSorted);

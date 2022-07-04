@@ -40,3 +40,15 @@ const functionalString= (elements)=>{
   return elements.filter(element => element.split(/\s+/).length === 1); //works on true
 }
 console.log(functionalString(states));
+
+// exercise
+const filter1 = (elements)=>{
+  return elements.filter(element => element.split(/\s+/).length == 2); // 1st method
+}
+
+const filter2 = (elements)=> {
+  return elements.filter(element => element.split(/\s+/).includes("Dakota"));// second method
+}
+
+console.log(filter1(states));
+console.log(filter2(states));

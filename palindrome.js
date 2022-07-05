@@ -46,6 +46,11 @@ function Phrase2(content){
     let processedContent = this.content.toLowerCase();
     return processedContent === reverse(processedContent);
   }
+
+  this.louder = function louder(){
+    return this.content.toUpperCase();
+  }
 }
 phrase = new Phrase2("racecar");
 console.log(phrase.palindrome3());
+console.log(phrase.louder());

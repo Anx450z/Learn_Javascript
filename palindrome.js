@@ -24,3 +24,28 @@ const reverse = (word) =>{
 
 console.log(reverse("😂❤️😂"));
 console.log(reverse("😂❤️🌐😂"));
+
+
+// Define a phrase object
+// const Phrase = (content)=>{
+//   this.content = content;
+// }
+
+// Constructor
+function Phrase(content){
+  this.content = content;
+}
+let phrase = new Phrase("Racecar");
+console.log(phrase.content);
+
+// Returns true if the phrase is a palindrome, false otherwise
+function Phrase2(content){
+  this.content = content;
+
+  this.palindrome3 = function palindrome3() {
+    let processedContent = this.content.toLowerCase();
+    return processedContent === reverse(processedContent);
+  }
+}
+phrase = new Phrase2("racecar");
+console.log(phrase.palindrome3());

@@ -18,9 +18,9 @@
 // console.log(palindrome2("Racecar")) ;
 // console.log(palindrome2("Ankur")) ;
 
-const reverse = (word) =>{
-  return Array.from(word).reverse().join("")
-}
+// const reverse = (word) =>{
+//   return Array.from(word).reverse().join("")
+// }
 
 // console.log(reverse("😂❤️😂"));
 // console.log(reverse("😂❤️🌐😂"));
@@ -38,6 +38,11 @@ const reverse = (word) =>{
 // let phrase = new Phrase("Racecar");
 // console.log(phrase.content);
 
+//native object modification
+String.prototype.reverse = function() {
+  return Array.from(this).reverse().join("");
+}
+
 // Returns true if the phrase is a palindrome, false otherwise
 function Phrase2(content){
   this.content = content;
@@ -51,7 +56,7 @@ function Phrase2(content){
   }
 
   this.palindrome3 = function palindrome3() {
-    return this.processedContent() === reverse(this.processedContent());
+    return this.processedContent() === this.processedContent().reverse();
   }
 
   this.louder = function louder(){
@@ -78,3 +83,15 @@ TranslatePhrase.prototype = new Phrase2(); // prototype inherits methods of Phra
 phrase = new TranslatePhrase("recognize", "reconocer");
 console.log(phrase.palindrome3());
 console.log(phrase.louder(), phrase.content,  phrase.translation );
+
+
+console.log("hello! world!".reverse());
+
+// exercise
+
+String.prototype.blank = function(){
+  return !!this.match(/\s+/);
+}
+console.log("".blank());
+console.log("hello".blank());
+console.log("  ".blank());

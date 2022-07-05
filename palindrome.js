@@ -42,8 +42,12 @@ const reverse = (word) =>{
 function Phrase2(content){
   this.content = content;
 
+  this.processor = function processor(){
+    return string.toLowerCase(string);
+  }
+
   this.processedContent = function processedContent(){
-    return this.content.toLowerCase();
+    return this.processor(this.content);
   }
 
   this.palindrome3 = function palindrome3() {
@@ -65,7 +69,7 @@ function TranslatePhrase(content, translation){
 
   // Return translation processed for palindrome testing.
   this.processedContent = function processedContent(){ // overriding
-    return this.translation.toLowerCase();
+    return this.translation;
   }
 }
 

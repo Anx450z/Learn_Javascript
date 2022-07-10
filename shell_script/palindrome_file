@@ -1,0 +1,22 @@
+#!/usr/local/bin/node
+
+console.log("Shell loaded");
+let fs = require("fs");
+let Phrase = require("mhartl-palindrome");
+
+let text = fs.readFileSync("phrases.txt", "utf-8");
+let palindromeResult;
+text.split("\n").forEach(function(line){
+  let phrase = new Phrase(line);
+  if (phrase.palindrome()){
+    palindromeResult += line + "\n" ;
+    console.log("palindrome detected: ", line);
+  }
+});
+
+fs.writeFile('./PalindromeResult.txt', palindromeResult, err => {
+  if (err) {
+    console.error(err)
+    return
+  }
+});

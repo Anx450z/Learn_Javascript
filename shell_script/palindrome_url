@@ -1,4 +1,5 @@
 #!/usr/local/bin/node
+
 let urllib = require('urllib');
 let Phrase = require("mhartl-palindrome");
 let url = 'https://cdn.learnenough.com/phrases.txt'
